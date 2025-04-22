@@ -1,4 +1,5 @@
 <?php
+include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 /**
  * Plugin Name: Page to Post Converter
  * Description: Convert Pages to Posts with Elementor compatibility, bulk and single conversion options.
@@ -17,7 +18,7 @@ add_action('admin_menu', function() {
 
 // Register Setting
 add_action('admin_init', function() {
-    register_setting('p2p_settings_group', 'p2p_preserve_elementor');
+    if (is_plugin_active("elementor/elementor.php")) { register_setting('p2p_settings_group', 'p2p_preserve_elementor'); }
 });
 
 // Settings Page
@@ -28,9 +29,9 @@ function p2p_settings_page() {
         <?php settings_fields('p2p_settings_group'); do_settings_sections('p2p_settings_group'); ?>
         <table class="form-table">
             <tr valign="top">
-                <th scope="row">Preserve Elementor Data?</th>
+                <?php if (is_plugin_active("elementor/elementor.php")): ?><th scope="row">Preserve Elementor Data?</th>
                 <td><input type="checkbox" name="p2p_preserve_elementor" value="1" <?php checked(1, get_option('p2p_preserve_elementor'), true); ?> /></td>
-            </tr>
+            <?php endif; ?></tr>
         </table>
         <?php submit_button(); ?>
     </form></div>
@@ -71,7 +72,7 @@ function p2p_converter_tool() {
     <form method="post">
         <?php wp_nonce_field('p2p_bulk_convert'); ?>
         <table class="wp-list-table widefat fixed striped">
-            <thead><tr><th><input type="checkbox" id="select_all"></th><th>Title</th><th>Author</th><th>Status</th><th>Action</th></tr></thead>
+            <thead><tr><th><input type="checkbox" id="select_all"></th><th>Title</th><th>Author</th><th>Status</th><th>Action</th><?php endif; ?></tr></thead>
             <tbody>
             <?php foreach ($pages as $page): ?>
                 <tr>
@@ -80,7 +81,7 @@ function p2p_converter_tool() {
                     <td><?php echo esc_html(get_the_author_meta('display_name', $page->post_author)); ?></td>
                     <td><?php echo esc_html($page->post_status); ?></td>
                     <td><a href="<?php echo wp_nonce_url(admin_url('tools.php?page=p2p-converter-tool&convert_one=' . $page->ID), 'p2p_convert_one'); ?>" class="button">Convert Now</a></td>
-                </tr>
+                <?php endif; ?></tr>
             <?php endforeach; ?>
             </tbody>
         </table>
@@ -122,7 +123,7 @@ function p2p_convert_page_to_post($page_id) {
     $new_id = wp_insert_post($page);
     if (is_wp_error($new_id)) return false;
 
-    if (get_option('p2p_preserve_elementor')) {
+    if (is_plugin_active("elementor/elementor.php") && get_option('p2p_preserve_elementor')) {
         $keys = ['_elementor_data','_elementor_edit_mode','_elementor_template_type','_elementor_page_settings'];
         foreach ($keys as $k) {
             $v = get_post_meta($page_id, $k, true);
