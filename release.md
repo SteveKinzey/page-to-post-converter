@@ -2,6 +2,7 @@
 
 ## [v1.3.1] - 2025-04-22
 ### Added
+<<<<<<< HEAD
 - Sorting by publish date in the admin UI (Newest First / Oldest First)
 - Maintains compatibility with existing filters: author, status, and keyword search
 
@@ -12,6 +13,26 @@
 ### Fixed
 - Minor visual issues with checkbox selections in list table
 
+=======
+- Sort by publish date (Newest First / Oldest First) in the converter interface
+- Sort integrates with existing filters: author, post status, and keyword search
+
+### Changed
+- Refined admin UI for smoother filtering and batch actions
+
+### Fixed
+- Minor display issues with bulk convert checkboxes and Elementor toggle persistency
+
+---
+
+## [v1.3] - 2025-04-22
+### Added
+- Bulk conversion of selected Pages to Posts
+- “Convert Now” button for one-by-one conversion
+- Filters: Author, Status, Title Search
+
+---
+>>>>>>> e95b082 (Update release.md with v1.3.1 changelog)
 
 ## [v1.2] - 2025-04-22
 ### Added
