@@ -1,3 +1,7 @@
 .DS_Store
 .DS_Store
 api_request_template.py
+*.zip
+vendor/
+.DS_Store
+api_request_template.py
