@@ -1,26 +1,27 @@
-=== Pages to Posts Converter ===
-Contributors: SteveKinzey
-Tags: pages, posts, convert, elementor
-Requires at least: 5.0
-Tested up to: 6.5
-Stable tag: 1.3.2
-License: GPLv2 or later
-License URI: https://www.gnu.org/licenses/gpl-2.0.html
-
 == Changelog ==
 
-= 1.3.2 =
-* Plugin now runs independently of Elementor
-* Elementor-related options only appear if Elementor is installed
+= 2.1.1 - 2026-01-28 =
+* Fixed: PHP fatal errors (stray endif statements)
+* Fixed: True conversion using wp_update_post() instead of creating duplicates
+* Added: Input sanitization for improved security
+* Added: "Delete Original Page" setting option
+* Added: Support for Bricks, Breakdance, Divi, Beaver Builder, WPBakery
+* Added: Auto-detection of installed page builders
 
-= 1.3.1 =
-* Added sort by publish date (Newest First / Oldest First)
-* Fully compatible with author, status, and keyword filters
+= 1.3.2 - 2025-04-22 =
+* Changed: Plugin now runs independently of Elementor
+* Changed: Elementor settings only appear if Elementor is active
 
-= 1.3 =
-* Added bulk and single page conversion options
-* Added filters for author, post status, and title search
+= 1.3.1 - 2025-04-22 =
+* Added: Sort by publish date (Newest First / Oldest First)
+* Fixed: Minor display issues with bulk convert checkboxes
 
-= 1.2 =
-* Elementor metadata preservation (_elementor_data, etc.)
-* Admin UI toggle to preserve Elementor data
+= 1.3 - 2025-04-22 =
+* Added: Bulk conversion of selected Pages to Posts
+* Added: "Convert Now" button for one-by-one conversion
+* Added: Filters for Author, Status, Title Search
+
+= 1.2 - 2025-04-22 =
+* Added: Elementor metadata preservation
+* Added: Admin settings page with "Preserve Elementor Data" toggle
+* Added: Automatic featured image carryover

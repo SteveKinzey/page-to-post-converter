@@ -2,20 +2,28 @@
 
 ## Supported Versions
 
-Use this section to tell people about which versions of your project are
-currently being supported with security updates.
-
 | Version | Supported          |
 | ------- | ------------------ |
-| 5.1.x   | :white_check_mark: |
-| 5.0.x   | :x:                |
-| 4.0.x   | :white_check_mark: |
-| < 4.0   | :x:                |
+| 2.1.x   | :white_check_mark: |
+| 1.3.x   | :x:                |
+| < 1.3   | :x:                |
 
 ## Reporting a Vulnerability
 
-Use this section to tell people how to report a vulnerability.
+If you discover a security vulnerability in this plugin, please report it responsibly:
 
-Tell them where to go, how often they can expect to get an update on a
-reported vulnerability, what to expect if the vulnerability is accepted or
-declined, etc.
+1. **Email:** steve@sk-america.com
+2. **Subject:** Security Vulnerability - Page to Post Converter
+
+Please include:
+- Description of the vulnerability
+- Steps to reproduce
+- Potential impact
+- Any suggested fixes (optional)
+
+### Response Timeline
+- **Acknowledgment:** Within 48 hours
+- **Initial Assessment:** Within 7 days
+- **Fix/Patch:** Depending on severity, typically within 14-30 days
+
+We appreciate responsible disclosure and will credit reporters in our release notes (unless anonymity is requested).
