@@ -1,5 +1,3 @@
-Yes, that's the fixed version. Now write it to the file:
-bashcat > page-to-post-converter.php << 'EOF'
 <?php
 include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 /**
@@ -269,4 +267,3 @@ function p2p_convert_page_to_post($page_id) {
 
     return $new_id;
 }
-EOF
